@@ -2,7 +2,6 @@ version: '3'
 
 services:
   bitcoind:
-    env_file: .env
     network_mode: host
     command:
       - -printtoconsole
@@ -15,7 +14,7 @@ services:
 
   exporter:
     build: .
-    env_file: .env
+    env_file: docker/.env
     depends_on:
       - bitcoind
     network_mode: host

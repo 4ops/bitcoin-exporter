@@ -17,7 +17,16 @@
 
         "docker:bsv:up": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml up --build -d",
         "docker:bsv:logs": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml logs -f exporter",
-        "docker:bsv:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml down"
+        "docker:bsv:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml down",
+
+        "debug:btc": "node -r dotenv/config . dotenv_config_path=btc.env",
+        "debug:bch": "node -r dotenv/config . dotenv_config_path=bch.env",
+
+        "build": "docker build . -t bitcoin-exporter",
+        "prepush": "git push",
+        "push": "git push --tags",
+        "preversion": "git add -A .",
+        "postversion": "yarn run push -s"
     },
     "repository": {
         "type": "git",
