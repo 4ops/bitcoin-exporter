@@ -1,5 +1,7 @@
 # Bitcoin exporter
 
+[![](https://images.microbadger.com/badges/image/4ops/bitcoin-exporter.svg)](https://hub.docker.com/r/4ops/bitcoin-exporter 'View on Docker Hub') [![install size](https://packagephobia.now.sh/badge?p=bitcoin-exporter)](https://packagephobia.now.sh/result?p=bitcoin-exporter)
+
 Bitcoin node metrics exporter for Prometheus.
 
 Example [metrics data](https://github.com/4ops/bitcoin-exporter/blob/master/examples/metrics.txt).
