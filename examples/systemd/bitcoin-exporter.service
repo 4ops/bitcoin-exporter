@@ -1,0 +1,15 @@
+[Unit]
+Description=Bitcoin node metrics exporter for Prometheus
+Documentation=https://github.com/4ops/bitcoin-exporter
+After=network.target
+
+[Service]
+Environment=BITCOIN_RPCUSER=rpcuser
+Environment=BITCOIN_RPCPASSWORD=rpcpassword
+Environment=BITCOIN_RPCHOST=localhost
+Environment=BITCOIN_RPCPORT=18332
+ExecStart=/opt/bitcoin-exporter/daemon-example.sh
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
