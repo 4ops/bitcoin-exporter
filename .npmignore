@@ -2,6 +2,8 @@
 ._*
 .DS_Store
 .git
+.gitignore
+.gitattributes
 .hg
 .npmrc
 .lock-wscript
@@ -11,7 +13,7 @@ config.gypi
 CVS
 .vscode
 .idea
-
+node_modules
 pids
 *.pid
 *.seed
@@ -23,4 +25,13 @@ yarn-debug.log*
 yarn-error.log*
 
 *.env
-!docker/.env
+docker
+Dockerfile
+docker-test.yaml
+.dockerignore
+
+.editorconfig
+.eslintignore
+.eslintrc
+.prettier*
+
