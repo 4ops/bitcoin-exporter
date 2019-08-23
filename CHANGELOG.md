@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2]
+
+### Added
+
+- Documentation
+
+### Changed
+
+- Npm package files ignore
+- Cleanup project files when build docker image
+
 ## [0.1.1]
 
 ### Fixed
