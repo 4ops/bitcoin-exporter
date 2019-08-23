@@ -22,7 +22,7 @@
         "prepush": "git push",
         "push": "git push --tags",
         "preversion": "git add -A .",
-        "postversion": "yarn run push -s"
+        "postversion": "yarn run push"
     },
     "repository": {
         "type": "git",
