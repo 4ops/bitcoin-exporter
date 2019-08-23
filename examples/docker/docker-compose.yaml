@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  bitcoin:
+    image: 4ops/bitcoin-core:v0.18.1
+    volumes:
+      - ./data:/home/bitcoin/.bitcoin
+    ports:
+      - '18332:18332'
+      - '18333:18333'
+    command:
+      - -printtoconsole
+      - -rpcallowip=0.0.0.0/0
+      - -rpcbind=0.0.0.0
+      - -rpcuser=testuser
+      - -rpcpassword=testpassword
+      - -onlynet=ipv4
+      - -txindex
+      - -testnet
+    restart: always
+
+  exporter:
+    image: 4ops/bitcoin-exporter:v0.1.1
+    ports:
+      - '9133:9133'
+    depends_on:
+      - bitcoin
+    links:
+      - bitcoin
+    environment:
+      BITCOIN_RPCUSER: testuser
+      BITCOIN_RPCPASSWORD: testpassword
+      BITCOIN_RPCHOST: bitcoin
+      BITCOIN_RPCPORT: '18332'
+      METRICS_PREFIX: bitcoin_
+      LOG_LEVEL: info
+      LOG_DEBUG: '*'
+      LOG_TIME: abs
+    restart: always

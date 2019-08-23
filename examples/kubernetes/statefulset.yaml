@@ -1,0 +1,132 @@
+#
+# It's just an example! Edit this file before deploy to kubernetes cluster!
+#
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    k8s-app: bitcoin-abc
+    blockchain: testnet
+    currency: bch
+  name: bitcoin-abc-testnet
+  namespace: testing
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: bitcoin-abc
+      blockchain: testnet
+  serviceName: bitcoin-abc-testnet
+  template:
+    metadata:
+      annotations:
+        prometheus.io/path: '/metrics'
+        prometheus.io/port: '9133'
+        prometheus.io/scrape: 'true'
+      creationTimestamp: null
+      labels:
+        k8s-app: bitcoin-abc
+        blockchain: testnet
+        metrics-exporter: bitcoin-exporter
+    spec:
+      containers:
+        - args:
+            - '-printtoconsole'
+            - '-rpcuser=$(BITCOIN_RPCUSER)'
+            - '-rpcpassword=$(BITCOIN_RPCPASSWORD)'
+            - '-rpcallowip=10.0.0.0/8'
+            - '-txindex'
+            - '-testnet'
+          env:
+            - name: BITCOIN_RPCUSER
+              valueFrom:
+                secretKeyRef:
+                  name: bitcoin-abc-testnet
+                  key: BITCOIN_RPCUSER
+            - name: BITCOIN_RPCPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: bitcoin-abc-testnet
+                  key: BITCOIN_RPCPASSWORD
+          image: 4ops/bitcoin-abc:v0.20.0
+          livenessProbe:
+            tcpSocket:
+              port: 18333
+            timeoutSeconds: 1
+          name: bitcoin-abc
+          ports:
+            - containerPort: 18332
+              name: rpc
+              protocol: TCP
+            - containerPort: 18333
+              name: p2p
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 2000m
+              memory: 2Gi
+            limits:
+              cpu: 2000m
+              memory: 2Gi
+          volumeMounts:
+            - mountPath: /home/bitcoin/.bitcoin
+              name: data
+        - env:
+            - name: BITCOIN_RPCUSER
+              valueFrom:
+                secretKeyRef:
+                  name: bitcoin-abc-testnet
+                  key: BITCOIN_RPCUSER
+            - name: BITCOIN_RPCPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: bitcoin-abc-testnet
+                  key: BITCOIN_RPCPASSWORD
+            - name: BITCOIN_RPCHOST
+              value: localhost
+            - name: BITCOIN_RPCPORT
+              value: '18332'
+            - name: METRICS_PREFIX
+              value: bitcoin_abc_
+            - name: LOG_LEVEL
+              value: info
+            - name: LOG_DEBUG
+              value: '*'
+            - name: LOG_TIME
+              value: abs
+          image: 4ops/bitcoin-exporter:v0.1.1
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: http-metrics
+            timeoutSeconds: 3
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          name: metrics-exporter
+          ports:
+            - containerPort: 9133
+              name: http-metrics
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: 100m
+              memory: 200Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsGroup: 1000
+            runAsUser: 1000
+            procMount: Default
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 50Gi
+        storageClassName: standard

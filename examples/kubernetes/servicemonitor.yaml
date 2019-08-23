@@ -1,0 +1,40 @@
+#
+# Use this resource only if prometheus operator installed.
+# See: https://github.com/coreos/prometheus-operator
+#
+# It's just an example! Edit this file before deploy to kubernetes cluster!
+#
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    prometheus-job: bitcoin-stats
+  name: bitcoin-exporter-discovery
+  namespace: testing
+spec:
+  ports:
+    - name: http-metrics
+      port: 9133
+      protocol: TCP
+      targetPort: 9133
+  selector:
+    metrics-exporter: bitcoin-exporter
+  type: ClusterIP
+  clusterIP: None
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: bitcoin-exporters
+  namespace: monitoring
+spec:
+  endpoints:
+    - interval: 30s
+      port: http-metrics
+  jobLabel: prometheus-job
+  namespaceSelector:
+    matchNames:
+      - testing
+  selector:
+    matchLabels:
+      prometheus-job: bitcoin-stats
