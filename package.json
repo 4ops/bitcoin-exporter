@@ -1,6 +1,6 @@
 {
     "name": "bitcoin-exporter",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Collects statistics from bitcoin node via JSON-RPC and exports it in prometheus metrics format.",
     "engines": {
         "node": ">=12.8.0"
@@ -10,18 +10,14 @@
         "docker:btc:up": "docker-compose -f docker-test.yaml -f docker/docker-compose.btc.yaml up --build -d",
         "docker:btc:logs": "docker-compose -f docker-test.yaml -f docker/docker-compose.btc.yaml logs -f exporter",
         "docker:btc:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.btc.yaml down",
-
         "docker:bch:up": "docker-compose -f docker-test.yaml -f docker/docker-compose.bch.yaml up --build -d",
         "docker:bch:logs": "docker-compose -f docker-test.yaml -f docker/docker-compose.bch.yaml logs -f exporter",
         "docker:bch:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.bch.yaml down",
-
         "docker:bsv:up": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml up --build -d",
         "docker:bsv:logs": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml logs -f exporter",
         "docker:bsv:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml down",
-
         "debug:btc": "node -r dotenv/config . dotenv_config_path=btc.env",
         "debug:bch": "node -r dotenv/config . dotenv_config_path=bch.env",
-
         "build": "docker build . -t bitcoin-exporter",
         "prepush": "git push",
         "push": "git push --tags",
