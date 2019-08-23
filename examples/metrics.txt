@@ -1,0 +1,99 @@
+# HELP bitcoin_size_on_disk The estimated size of the block and undo files on disk.
+# TYPE bitcoin_size_on_disk gauge
+bitcoin_size_on_disk 24988752162
+
+# HELP bitcoin_pruned If the blocks are subject to pruning.
+# TYPE bitcoin_pruned gauge
+bitcoin_pruned 0
+
+# HELP bitcoin_warnings Any network and blockchain warnings. Text value in labels.
+# TYPE bitcoin_warnings gauge
+bitcoin_warnings{value="Warning: unknown new rules activated (versionbit 28)"} 1
+
+# HELP bitcoin_getmempoolinfo_errors Errors counter for method getmempoolinfo.
+# TYPE bitcoin_getmempoolinfo_errors counter
+bitcoin_getmempoolinfo_errors 0
+
+# HELP bitcoin_mempoolsize Current tx count.
+# TYPE bitcoin_mempoolsize gauge
+bitcoin_mempoolsize 358
+
+# HELP bitcoin_mempoolbytes Sum of all virtual transaction sizes as defined in BIP 141. Differs from actual serialized size because witness data is discounted.
+# TYPE bitcoin_mempoolbytes gauge
+bitcoin_mempoolbytes 335717
+
+# HELP bitcoin_mempoolusage Total memory usage for the mempool.
+# TYPE bitcoin_mempoolusage gauge
+bitcoin_mempoolusage 926720
+
+# HELP bitcoin_maxmempool Maximum memory usage for the mempool.
+# TYPE bitcoin_maxmempool gauge
+bitcoin_maxmempool 300000000
+
+# HELP bitcoin_mempoolminfee Minimum fee rate in BTC/kB for tx to be accepted. Is the maximum of minrelaytxfee and minimum mempool fee.
+# TYPE bitcoin_mempoolminfee gauge
+bitcoin_mempoolminfee 1e-8
+
+# HELP bitcoin_minrelaytxfee Current minimum relay fee for transactions.
+# TYPE bitcoin_minrelaytxfee gauge
+bitcoin_minrelaytxfee 1e-8
+
+# HELP bitcoin_getnetworkinfo_errors Errors counter for method getnetworkinfo.
+# TYPE bitcoin_getnetworkinfo_errors counter
+bitcoin_getnetworkinfo_errors 0
+
+# HELP bitcoin_version The server version.
+# TYPE bitcoin_version gauge
+bitcoin_version 180100
+
+# HELP bitcoin_subversion The server subversion string. Text value in labels.
+# TYPE bitcoin_subversion gauge
+bitcoin_subversion{value="/Satoshi:0.18.1/"} 1
+
+# HELP bitcoin_protocolversion The protocol version.
+# TYPE bitcoin_protocolversion gauge
+bitcoin_protocolversion 70015
+
+# HELP bitcoin_localrelay True if transaction relay is requested from peers.
+# TYPE bitcoin_localrelay gauge
+bitcoin_localrelay 1
+
+# HELP bitcoin_networkactive Whether p2p networking is enabled.
+# TYPE bitcoin_networkactive gauge
+bitcoin_networkactive 1
+
+# HELP bitcoin_connections The number of connections.
+# TYPE bitcoin_connections gauge
+bitcoin_connections 84
+
+# HELP bitcoin_relayfee Minimum relay fee for transactions in BTC/kB.
+# TYPE bitcoin_relayfee gauge
+bitcoin_relayfee 1e-8
+
+# HELP bitcoin_getchaintxstats_errors Errors counter for method getchaintxstats.
+# TYPE bitcoin_getchaintxstats_errors counter
+bitcoin_getchaintxstats_errors 0
+
+# HELP bitcoin_time The timestamp for the final block in the window in UNIX format.
+# TYPE bitcoin_time gauge
+bitcoin_time 1566562909
+
+# HELP bitcoin_txcount The total number of transactions in the chain up to that point.
+# TYPE bitcoin_txcount gauge
+bitcoin_txcount 51845832
+
+# HELP bitcoin_window_block_count Size of the window in number of blocks.
+# TYPE bitcoin_window_block_count gauge
+bitcoin_window_block_count 4320
+
+# HELP bitcoin_window_tx_count The number of transactions in the window. Only returned if 'window_block_count' is > 0.
+# TYPE bitcoin_window_tx_count gauge
+bitcoin_window_tx_count 326290
+
+# HELP bitcoin_window_interval The elapsed time in the window in seconds. Only returned if 'window_block_count' is > 0.
+# TYPE bitcoin_window_interval gauge
+bitcoin_window_interval 2336069
+
+# HELP bitcoin_txrate The average rate of transactions per second in the window. Only returned if 'window_interval' is > 0.
+# TYPE bitcoin_txrate gauge
+bitcoin_txrate 0.1396748126874677

@@ -1,6 +1,8 @@
 # Bitcoin exporter
 
-Bitcoin node metrics exporter for Prometheus
+Bitcoin node metrics exporter for Prometheus.
+
+Example [metrics data](https://github.com/4ops/bitcoin-exporter/blob/master/examples/metrics.txt).
 
 # Compatibility
 
