@@ -1,6 +1,6 @@
 {
     "name": "bitcoin-exporter",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Collects statistics from bitcoin node via JSON-RPC and exports it in prometheus metrics format.",
     "engines": {
         "node": ">=12.8.0"
