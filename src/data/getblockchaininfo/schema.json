@@ -1,0 +1,54 @@
+{
+    "chain": {
+        "help": "Current network name as defined in BIP70 (main, test, regtest). Text value in labels.",
+        "name": "chain",
+        "metricType": "Gauge",
+        "labelNames": ["value"]
+    },
+    "blocks": {
+        "help": "The current number of blocks processed in the server.",
+        "name": "blocks",
+        "metricType": "Gauge"
+    },
+    "headers": {
+        "help": "The current number of headers we have validated.",
+        "name": "headers",
+        "metricType": "Gauge"
+    },
+    "difficulty": {
+        "help": "The current difficulty.",
+        "name": "difficulty",
+        "metricType": "Gauge"
+    },
+    "mediantime": {
+        "help": "Median time for the current best block.",
+        "name": "mediantime",
+        "metricType": "Gauge"
+    },
+    "verificationprogress": {
+        "help": "Estimate of verification progress [0..1].",
+        "name": "verificationprogress",
+        "metricType": "Gauge"
+    },
+    "initialblockdownload": {
+        "help": "Estimate of whether this node is in Initial Block Download mode.",
+        "name": "initialblockdownload",
+        "metricType": "Gauge"
+    },
+    "size_on_disk": {
+        "help": "The estimated size of the block and undo files on disk.",
+        "name": "size_on_disk",
+        "metricType": "Gauge"
+    },
+    "pruned": {
+        "help": "If the blocks are subject to pruning.",
+        "name": "pruned",
+        "metricType": "Gauge"
+    },
+    "warnings": {
+        "help": "Any network and blockchain warnings. Text value in labels.",
+        "name": "warnings",
+        "metricType": "Gauge",
+        "labelNames": ["value"]
+    }
+}

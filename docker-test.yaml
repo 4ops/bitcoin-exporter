@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  bitcoind:
+    env_file: .env
+    network_mode: host
+    command:
+      - -printtoconsole
+      - -rpcuser=rpcuser
+      - -rpcpassword=rpcpassword
+      - -rpcallowip=::/0
+      - -onlynet=ipv4
+      - -testnet
+    restart: 'no'
+
+  exporter:
+    build: .
+    env_file: .env
+    depends_on:
+      - bitcoind
+    network_mode: host
+    restart: 'no'

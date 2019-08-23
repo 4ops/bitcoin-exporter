@@ -1,0 +1,38 @@
+{
+    "version": {
+        "help": "The server version.",
+        "name": "version",
+        "metricType": "Gauge"
+    },
+    "subversion": {
+        "help": "The server subversion string. Text value in labels.",
+        "name": "subversion",
+        "metricType": "Gauge",
+        "labelNames": ["value"]
+    },
+    "protocolversion": {
+        "help": "The protocol version.",
+        "name": "protocolversion",
+        "metricType": "Gauge"
+    },
+    "localrelay": {
+        "help": "True if transaction relay is requested from peers.",
+        "name": "localrelay",
+        "metricType": "Gauge"
+    },
+    "networkactive": {
+        "help": "Whether p2p networking is enabled.",
+        "name": "networkactive",
+        "metricType": "Gauge"
+    },
+    "connections": {
+        "help": "The number of connections.",
+        "name": "connections",
+        "metricType": "Gauge"
+    },
+    "relayfee": {
+        "help": "Minimum relay fee for transactions in BTC/kB.",
+        "name": "relayfee",
+        "metricType": "Gauge"
+    }
+}

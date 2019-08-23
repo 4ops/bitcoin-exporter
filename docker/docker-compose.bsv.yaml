@@ -1,0 +1,5 @@
+version: '3'
+
+services:
+  bitcoind:
+    image: 4ops/bitcoin-sv:v0.2.1

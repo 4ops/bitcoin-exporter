@@ -1,0 +1,54 @@
+{
+    "name": "bitcoin-exporter",
+    "version": "0.0.0",
+    "description": "Collects statistics from bitcoin node via JSON-RPC and exports it in prometheus metrics format.",
+    "engines": {
+        "node": ">=12.8.0"
+    },
+    "main": "./src/index.js",
+    "scripts": {
+        "docker:btc:up": "docker-compose -f docker-test.yaml -f docker/docker-compose.btc.yaml up --build -d",
+        "docker:btc:logs": "docker-compose -f docker-test.yaml -f docker/docker-compose.btc.yaml logs -f exporter",
+        "docker:btc:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.btc.yaml down",
+
+        "docker:bch:up": "docker-compose -f docker-test.yaml -f docker/docker-compose.bch.yaml up --build -d",
+        "docker:bch:logs": "docker-compose -f docker-test.yaml -f docker/docker-compose.bch.yaml logs -f exporter",
+        "docker:bch:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.bch.yaml down",
+
+        "docker:bsv:up": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml up --build -d",
+        "docker:bsv:logs": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml logs -f exporter",
+        "docker:bsv:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.bsv.yaml down"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/4ops/bitcoin-exporter.git"
+    },
+    "keywords": [
+        "blockchain",
+        "bitcoin",
+        "prometheus"
+    ],
+    "author": {
+        "name": "Anton Kulikov <anton.kulikov@protonmail.com>"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/4ops/bitcoin-exporter/issues"
+    },
+    "homepage": "https://github.com/4ops/bitcoin-exporter#readme",
+    "devDependencies": {
+        "dotenv": "^8.1.0",
+        "eslint": "^6.2.1",
+        "eslint-config-prettier": "^6.1.0",
+        "eslint-plugin-node": "^9.1.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-security": "^1.4.0",
+        "prettier": "^1.18.2"
+    },
+    "dependencies": {
+        "axios": "^0.19.0",
+        "log": "^6.0.0",
+        "log-node": "^7.0.0",
+        "prom-client": "^11.5.3"
+    }
+}

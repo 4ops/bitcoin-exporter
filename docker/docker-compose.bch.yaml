@@ -1,0 +1,5 @@
+version: '3'
+
+services:
+  bitcoind:
+    image: 4ops/bitcoin-abc:v0.20.0

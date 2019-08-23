@@ -1,0 +1,33 @@
+{
+    "time": {
+        "help": "The timestamp for the final block in the window in UNIX format.",
+        "name": "time",
+        "metricType": "Gauge"
+    },
+    "txcount": {
+        "help": "The total number of transactions in the chain up to that point.",
+        "name": "txcount",
+        "metricType": "Gauge",
+        "labelNames": ["value"]
+    },
+    "window_block_count": {
+        "help": "Size of the window in number of blocks.",
+        "name": "window_block_count",
+        "metricType": "Gauge"
+    },
+    "window_tx_count": {
+        "help": "The number of transactions in the window. Only returned if 'window_block_count' is > 0.",
+        "name": "window_tx_count",
+        "metricType": "Gauge"
+    },
+    "window_interval": {
+        "help": "The elapsed time in the window in seconds. Only returned if 'window_block_count' is > 0.",
+        "name": "window_interval",
+        "metricType": "Gauge"
+    },
+    "txrate": {
+        "help": "The average rate of transactions per second in the window. Only returned if 'window_interval' is > 0.",
+        "name": "txrate",
+        "metricType": "Gauge"
+    }
+}

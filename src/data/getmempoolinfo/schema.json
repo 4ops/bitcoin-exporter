@@ -1,0 +1,32 @@
+{
+    "size": {
+        "help": "Current tx count.",
+        "name": "mempoolsize",
+        "metricType": "Gauge"
+    },
+    "bytes": {
+        "help": "Sum of all virtual transaction sizes as defined in BIP 141. Differs from actual serialized size because witness data is discounted.",
+        "name": "mempoolbytes",
+        "metricType": "Gauge"
+    },
+    "usage": {
+        "help": "Total memory usage for the mempool.",
+        "name": "mempoolusage",
+        "metricType": "Gauge"
+    },
+    "maxmempool": {
+        "help": "Maximum memory usage for the mempool.",
+        "name": "maxmempool",
+        "metricType": "Gauge"
+    },
+    "mempoolminfee": {
+        "help": "Minimum fee rate in BTC/kB for tx to be accepted. Is the maximum of minrelaytxfee and minimum mempool fee.",
+        "name": "mempoolminfee",
+        "metricType": "Gauge"
+    },
+    "minrelaytxfee": {
+        "help": "Current minimum relay fee for transactions.",
+        "name": "minrelaytxfee",
+        "metricType": "Gauge"
+    }
+}
