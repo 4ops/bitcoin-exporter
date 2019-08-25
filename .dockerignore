@@ -18,7 +18,7 @@ docker-*.yaml
 .eslintrc
 .prettierignore
 .prettierrc
-
+.pre-commit-config.yaml
 doc
 docs
 example*

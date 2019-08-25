@@ -29,7 +29,7 @@ docker
 Dockerfile
 docker-test.yaml
 .dockerignore
-
+.pre-commit-config.yaml
 .editorconfig
 .eslintignore
 .eslintrc
