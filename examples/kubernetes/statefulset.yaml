@@ -95,7 +95,7 @@ spec:
               value: '*'
             - name: LOG_TIME
               value: abs
-          image: 4ops/bitcoin-exporter:v0.1.1
+          image: 4ops/bitcoin-exporter:stable
           readinessProbe:
             httpGet:
               path: /metrics

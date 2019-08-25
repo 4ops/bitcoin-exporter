@@ -20,7 +20,7 @@ services:
     restart: always
 
   exporter:
-    image: 4ops/bitcoin-exporter:v0.1.1
+    image: 4ops/bitcoin-exporter:stable
     ports:
       - '9133:9133'
     depends_on:

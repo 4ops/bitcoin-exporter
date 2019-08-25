@@ -22,7 +22,7 @@ Put in your `docker-compose.yml`
 
 ```YAML
   exporter:
-    image: 4ops/bitcoin-exporter:v0.1.1
+    image: 4ops/bitcoin-exporter:stable
     ports:
       - '9133:9133'
     environment:
@@ -54,7 +54,7 @@ Example spec for `bitcoin-exporter` container:
       value: bitcoin.mycompany.org
     - name: BITCOIN_RPCPORT
       value: '18332'
-  image: 4ops/bitcoin-exporter:v0.1.1
+  image: 4ops/bitcoin-exporter:stable
   readinessProbe:
     httpGet:
       path: /metrics
