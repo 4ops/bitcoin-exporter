@@ -4,7 +4,7 @@
 
 Bitcoin node metrics exporter for Prometheus.
 
-Example [metrics data](https://github.com/4ops/bitcoin-exporter/blob/master/examples/metrics.txt).
+Example [metrics data](https://github.com/4ops/bitcoin-exporter/blob/master/examples/metrics.txt) and [json metrics](https://github.com/4ops/bitcoin-exporter/blob/master/examples/metrics.json).
 
 # Compatibility
 

@@ -1,0 +1,404 @@
+[
+  {
+    "help": "Errors counter for method getblockchaininfo.",
+    "name": "bitcoin_getblockchaininfo_errors",
+    "type": "counter",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Current network name as defined in BIP70 (main, test, regtest). Text value in labels.",
+    "name": "bitcoin_chain",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {
+          "value": "main"
+        }
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The current number of blocks processed in the server.",
+    "name": "bitcoin_blocks",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 597321,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The current number of headers we have validated.",
+    "name": "bitcoin_headers",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 597321,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The current difficulty.",
+    "name": "bitcoin_difficulty",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 309927071663.0472,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Median time for the current best block.",
+    "name": "bitcoin_mediantime",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1566728231,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Estimate of verification progress [0..1].",
+    "name": "bitcoin_verificationprogress",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0.9999969260647673,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Estimate of whether this node is in Initial Block Download mode.",
+    "name": "bitcoin_initialblockdownload",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The estimated size of the block and undo files on disk.",
+    "name": "bitcoin_size_on_disk",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 31403609417,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "If the blocks are subject to pruning.",
+    "name": "bitcoin_pruned",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Any network and blockchain warnings. Text value in labels.",
+    "name": "bitcoin_warnings",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {
+          "value": ""
+        }
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Errors counter for method getmempoolinfo.",
+    "name": "bitcoin_getmempoolinfo_errors",
+    "type": "counter",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Current tx count.",
+    "name": "bitcoin_mempoolsize",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 109,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Sum of all virtual transaction sizes as defined in BIP 141. Differs from actual serialized size because witness data is discounted.",
+    "name": "bitcoin_mempoolbytes",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 34084,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Total memory usage for the mempool.",
+    "name": "bitcoin_mempoolusage",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 137552,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Maximum memory usage for the mempool.",
+    "name": "bitcoin_maxmempool",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 300000000,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Minimum fee rate in BTC/kB for tx to be accepted. Is the maximum of minrelaytxfee and minimum mempool fee.",
+    "name": "bitcoin_mempoolminfee",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1e-05,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Current minimum relay fee for transactions.",
+    "name": "bitcoin_minrelaytxfee",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1e-05,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Errors counter for method getnetworkinfo.",
+    "name": "bitcoin_getnetworkinfo_errors",
+    "type": "counter",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The server version.",
+    "name": "bitcoin_version",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 190900,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The server subversion string. Text value in labels.",
+    "name": "bitcoin_subversion",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {
+          "value": "/Bitcoin ABC:0.19.9(EB32.0)/"
+        }
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The protocol version.",
+    "name": "bitcoin_protocolversion",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 70015,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "True if transaction relay is requested from peers.",
+    "name": "bitcoin_localrelay",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Whether p2p networking is enabled.",
+    "name": "bitcoin_networkactive",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The number of connections.",
+    "name": "bitcoin_connections",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 28,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Minimum relay fee for transactions in BTC/kB.",
+    "name": "bitcoin_relayfee",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1e-05,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Errors counter for method getchaintxstats.",
+    "name": "bitcoin_getchaintxstats_errors",
+    "type": "counter",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The timestamp for the final block in the window in UNIX format.",
+    "name": "bitcoin_time",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1566732244,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The total number of transactions in the chain up to that point.",
+    "name": "bitcoin_txcount",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 276908041,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Size of the window in number of blocks.",
+    "name": "bitcoin_window_block_count",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 4320,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The number of transactions in the window. Only returned if 'window_block_count' is > 0.",
+    "name": "bitcoin_window_tx_count",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1385938,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The elapsed time in the window in seconds. Only returned if 'window_block_count' is > 0.",
+    "name": "bitcoin_window_interval",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 2590778,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The average rate of transactions per second in the window. Only returned if 'window_interval' is > 0.",
+    "name": "bitcoin_txrate",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0.5349505052150358,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  }
+]
