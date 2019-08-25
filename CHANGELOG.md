@@ -2,13 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.1.3]
+## 0.1.4
+
+### Fixed
+
+- Export metrics in JSON format bug - fail with type error
+
+## 0.1.3
 
 ### Fixed
 
 - Remove directory `examples` from npm package
 
-## [0.1.2]
+## 0.1.2
 
 ### Added
 
@@ -19,17 +25,12 @@ All notable changes to this project will be documented in this file.
 - Npm package files ignore
 - Cleanup project files when build docker image
 
-## [0.1.1]
+## 0.1.1
 
 ### Fixed
 
 - Scripts for release automation
 
-## [0.1.0]
+## 0.1.0
 
 - Initial release
-
-[0.1.3]: https://github.com/4ops/bitcoin-exporter/compare/v0.1.0...v0.1.3
-[0.1.2]: https://github.com/4ops/bitcoin-exporter/compare/v0.1.0...v0.1.2
-[0.1.1]: https://github.com/4ops/bitcoin-exporter/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/4ops/bitcoin-exporter/releases/tag/v0.1.0
