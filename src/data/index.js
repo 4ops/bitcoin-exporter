@@ -18,7 +18,7 @@ async function exportAsString() {
 
 async function exportAsJSON() {
   await update();
-  return client.register.getMetricsAsJSON();
+  return JSON.stringify(client.register.getMetricsAsJSON());
 }
 
 module.exports = {
