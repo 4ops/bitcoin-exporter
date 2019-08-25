@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Fixed
+
+- Reduce image size: clean yarn cache after packages installed
+
 ## 0.1.4
 
 ### Fixed

@@ -6,6 +6,7 @@ COPY package.json yarn.lock /app/
 RUN set -ex; \
   \
   yarn install --production; \
+  yarn cache clean; \
   \
   find /app -depth -type f -a \
     \( \
