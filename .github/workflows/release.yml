@@ -1,0 +1,30 @@
+name: Test workflow
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Login to docker registry
+        run: docker login -u ${DOCKER_LOGIN} -p ${DOCKER_PASSWORD}
+        env:
+          DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build the Docker image
+        run: docker build . --pull -t ${IMAGE}:${GITHUB_REF} -t ${IMAGE}:stable -t ${IMAGE}:latest
+        env:
+          IMAGE: 4ops/bitcoin-exporter
+
+      - name: Publish image
+        run: docker push ${IMAGE}:${GITHUB_REF}
+        run: docker push ${IMAGE}:stable
+        run: docker push ${IMAGE}:latest
+        env:
+          IMAGE: 4ops/bitcoin-exporter
