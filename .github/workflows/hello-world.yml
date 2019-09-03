@@ -40,3 +40,6 @@ jobs:
 
       - name: Publish the Docker image
         run: docker push ${IMAGE}:${TAG}
+        env:
+          IMAGE: 4ops/bitcoin-exporter
+          TAG: test
