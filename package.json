@@ -19,6 +19,7 @@
         "debug:btc": "node -r dotenv/config . dotenv_config_path=btc.env",
         "debug:bch": "node -r dotenv/config . dotenv_config_path=bch.env",
         "build": "docker build . -t bitcoin-exporter",
+        "eslint": "node_modules/.bin/eslint src",
         "prepush": "git push",
         "push": "git push --tags",
         "preversion": "git add -A .",

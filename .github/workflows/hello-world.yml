@@ -1,18 +1,29 @@
-name: 'Test workflow'
+name: Test workflow
+
 on: [push]
 
 jobs:
-  check_pr:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.8.x, 12.9.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: |
+          yarn install
+      - name: Check syntax
+        run: |
+          yarn eslint
+
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12.8.x
-
-      - name: 'Install dependencies'
-        run: yarn install
-
-      - name: 'Check with ESLint'
-        run: node_modules/.bin/eslint src
+      - name: Build the Docker image
+        run: docker build . -t exporter
