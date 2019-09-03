@@ -25,5 +25,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+
+      - name: Login to docker registry
+        run: docker login -u ${DOCKER_LOGIN} -p ${DOCKER_PASSWORD}
+        env:
+          DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Build the Docker image
-        run: docker build . -t exporter
+        run: docker build . --pull -t ${IMAGE}:${TAG}
+        env:
+          IMAGE: 4ops/bitcoin-exporter
+          TAG: test
+
+      - name: Publish the Docker image
+        run: docker push ${IMAGE}:${TAG}
