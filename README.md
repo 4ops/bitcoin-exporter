@@ -107,6 +107,5 @@ Bitcoin exporter reads environments variables at startup. No more config files a
 
 ## Logging
 
-- `LOG_LEVEL` - logging verbosity level. Maybe on of: `debug`, `info`, `notice`, `warn`, `warning`, `error`. Default: `notice`
-- `LOG_DEBUG` - eventual list of namespaces to expose at levels below LOG_LEVEL threshold. Just set valu `*` if you need to turn on logging. See more information at [log](https://github.com/medikoo/log#log_debug)
-- `LOG_TIME` - timestamp format in logs. Default - none. Maybe one of: `rel` for time elapsed since running or `abs` for absolute timestamps (ISO 8601 format).
+- `LOG_LEVEL` - logging verbosity level. Maybe on of: `debug`, `info`, `notice`, `warn`, `warning`, `error`. Silent by default.
+- `LOG_TIME` - if has any non-empty value, prints timestamp in ISO format.

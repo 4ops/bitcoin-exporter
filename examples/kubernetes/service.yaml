@@ -4,7 +4,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bitcoin-abc-testnet
+  name: bch-test-txindex
   namespace: testing
 spec:
   ports:
@@ -13,8 +13,9 @@ spec:
       protocol: TCP
       targetPort: 18332
   selector:
-    k8s-app: bitcoin-abc
-    blockchain: testnet
+    chain: test
+    currency: bch
+    syncmode: txindex
   sessionAffinity: None
   type: ClusterIP
 # If you need to expose p2p port, create service by example below.

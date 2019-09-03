@@ -6,7 +6,7 @@ const { createMetrics, updateMetrics } = require('../utils');
 
 const methodName = 'getnetworkinfo';
 
-const log = require('log').get(methodName);
+const log = require('log-stderr');
 
 const errorsCounter = new client.Counter({
   name: `${prefix}${methodName}_errors`,

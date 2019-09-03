@@ -1,0 +1,52 @@
+#
+# Use this resource only if prometheus operator installed.
+# See: https://github.com/coreos/prometheus-operator
+#
+# It's just an example! Edit this file before deploy to kubernetes cluster!
+#
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: k8s
+    role: alert-rules
+  name: bitcoin-exporter-rules
+  namespace: monitoring
+spec:
+  groups:
+    - name: bitcoin-exporter-rules.rules
+      rules:
+        - expr: >
+            sum(bitcoin_getblockchaininfo_errors) by (job,instance)
+            +
+            sum(bitcoin_getmempoolinfo_errors) by (job,instance)
+            +
+            sum(bitcoin_getchaintxstats_errors) by (job,instance)
+            +
+            sum(bitcoin_getnetworkinfo_errors) by (job,instance)
+          record: bitcoin_errors:sum
+        - alert: BitcoinErrors
+          expr: sum(rate(bitcoin_errors:sum[5m])) by (job,instance) > 0.1
+          annotations:
+            message: Bitcoin node is experiencing {{ printf "%0.0f" $value }} errors / second in `{{ $labels.instance }} ({{ $labels.job }})`.
+          for: 10m
+          labels:
+            severity: warning
+        - alert: BitcoinLowPeers
+          expr: bitcoin_connections < 8
+          annotations:
+            message: Too small connected peers ({{ printf "%d" $value }}) on node `{{ $labels.instance }} ({{ $labels.job }})`.
+          for: 30m
+          labels:
+            severity: warning
+        - expr: sum(sum(bitcoin_networkactive) by (job,instance) * sum(bitcoin_chain) by (job,instance) *  sum(bitcoin_connections) by (job,instance) > 8) by (job,instance)
+          record: bitcoin_up
+        - expr: ((bitcoin_up > 0) * 0 + 1) * (1 - sum(bitcoin_initialblockdownload) by (job,instance)) * sum(bitcoin_localrelay) by (job,instance)
+          record: bitcoin_ready
+        - alert: BitcoinDown
+          expr: bitcoin_up < 1
+          annotations:
+            message: Bitcoin node `{{ $labels.instance }} ({{ $labels.job }})` is not OK.
+          for: 10m
+          labels:
+            severity: warning

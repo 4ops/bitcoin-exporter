@@ -1,6 +1,6 @@
-const log = require('log').get('server');
+const log = require('log-stderr');
 const http = require('http');
-const options = require('../options').metrics;
+const { port } = require('../options').metrics;
 const requestHandler = require('./request-handler');
 
 const onClientError = (err, socket) => {
@@ -8,13 +8,13 @@ const onClientError = (err, socket) => {
   socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 };
 
-const onServerReady = () => log.info(`listening port ${options.port}`);
+const onServerReady = () => log.info(`listening port ${port}`);
 
 function start(metrics) {
   const onRequest = requestHandler(metrics);
   const server = http.createServer(onRequest);
   server.on('clientError', onClientError);
-  return server.listen(options.port, onServerReady);
+  return server.listen(port, onServerReady);
 }
 
 module.exports = start;

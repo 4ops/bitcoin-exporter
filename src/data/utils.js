@@ -1,4 +1,4 @@
-const log = require('log').get('utils');
+const log = require('log-stderr');
 const client = require('prom-client');
 const { prefix } = require('../options').metrics;
 const metrics = [];

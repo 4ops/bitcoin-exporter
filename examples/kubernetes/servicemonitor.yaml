@@ -8,33 +8,45 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    prometheus-job: bitcoin-stats
-  name: bitcoin-exporter-discovery
+    chain: test
+    currency: bch
+    syncmode: txindex
+    api-metrics: bitcoin-exporter
+  name: bch-test-txindex-nodes
   namespace: testing
 spec:
   ports:
-    - name: http-metrics
+    - name: api-metrics
       port: 9133
       protocol: TCP
       targetPort: 9133
   selector:
-    metrics-exporter: bitcoin-exporter
+    chain: test
+    currency: bch
+    syncmode: txindex
+  sessionAffinity: None
   type: ClusterIP
   clusterIP: None
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: bitcoin-exporters
+  name: blockchain-api-metrics
   namespace: monitoring
 spec:
   endpoints:
     - interval: 30s
-      port: http-metrics
-  jobLabel: prometheus-job
+      port: api-metrics
+      path: /metrics
+      scheme: http
+      scrapeTimeout: 5s
   namespaceSelector:
     matchNames:
       - testing
   selector:
     matchLabels:
-      prometheus-job: bitcoin-stats
+      api-metrics: bitcoin-exporter
+  targetLabels:
+    - chain
+    - currency
+    - syncmode

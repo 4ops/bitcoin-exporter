@@ -52,8 +52,7 @@
     },
     "dependencies": {
         "axios": "^0.19.0",
-        "log": "^6.0.0",
-        "log-node": "^7.0.0",
+        "log-stderr": "^0.1.0",
         "prom-client": "^11.5.3"
     }
 }

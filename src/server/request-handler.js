@@ -1,4 +1,4 @@
-const log = require('log').get('server');
+const log = require('log-stderr');
 const options = require('../options').metrics;
 
 function requestHandler(metricsData) {

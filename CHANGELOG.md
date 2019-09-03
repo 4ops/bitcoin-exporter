@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 0.1.5
+
+### Added
+
+- Grafana dashboard example
+- Prometheus rules example
 
 ### Fixed
 
 - Reduce image size: clean yarn cache after packages installed
+- Kubernetes manifests example settings
+
+### Changed
+
+- Logging component
 
 ## 0.1.4
 

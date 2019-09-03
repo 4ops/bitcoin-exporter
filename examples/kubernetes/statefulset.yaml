@@ -5,9 +5,9 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   labels:
-    k8s-app: bitcoin-abc
-    blockchain: testnet
+    chain: test
     currency: bch
+    syncmode: txindex
   name: bitcoin-abc-testnet
   namespace: testing
 spec:
@@ -15,8 +15,10 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      k8s-app: bitcoin-abc
-      blockchain: testnet
+      chain: test
+      currency: bch
+      syncmode: txindex
+      api-metrics: bitcoin-exporter
   serviceName: bitcoin-abc-testnet
   template:
     metadata:
@@ -26,9 +28,10 @@ spec:
         prometheus.io/scrape: 'true'
       creationTimestamp: null
       labels:
-        k8s-app: bitcoin-abc
-        blockchain: testnet
-        metrics-exporter: bitcoin-exporter
+        chain: test
+        currency: bch
+        syncmode: txindex
+        api-metrics: bitcoin-exporter
     spec:
       containers:
         - args:
@@ -99,14 +102,14 @@ spec:
           readinessProbe:
             httpGet:
               path: /metrics
-              port: http-metrics
+              port: api-metrics
             timeoutSeconds: 3
             initialDelaySeconds: 5
             periodSeconds: 10
           name: metrics-exporter
           ports:
             - containerPort: 9133
-              name: http-metrics
+              name: api-metrics
               protocol: TCP
           resources:
             requests:

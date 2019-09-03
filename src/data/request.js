@@ -1,4 +1,4 @@
-const log = require('log').get('request');
+const log = require('log-stderr');
 const axios = require('axios');
 const { name, version } = require('../../package.json');
 const { scheme, user, password, host, port } = require('../options').bitcoin;
