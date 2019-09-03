@@ -1,5 +1,5 @@
-name: 'PR Checks'
-on: [pull_request, push]
+name: 'Test workflow'
+on: [push]
 
 jobs:
   check_pr:
